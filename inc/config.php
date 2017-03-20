@@ -1,10 +1,10 @@
 <?php
 
 // Constante pour définir la configuration de la DB
-define('DB_HOST', 'wf3.progweb.fr');
-define('DB_USER', 'patrices');
-define('DB_PASSWORD', 'webforce3');
-define('DB_DATABASE', 'patrices_sql0');
+define('DB_HOST', '');
+define('DB_USER', '');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', '');
 
 // définition DSN
 $dsn = 'mysql:dbname='.DB_DATABASE.';host='.DB_HOST.';charset=UTF8';
