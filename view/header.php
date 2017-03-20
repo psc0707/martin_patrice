@@ -33,10 +33,10 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
             <li><a href="index.php"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Acceuil</a></li>
-            <li><a href="list.php"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Catégories</a></li>
-            <li><a href="add.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un film</a></li>            
+            <li><a href="catalog.php"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Catégories</a></li>
+            <li><a href="add-movie.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un film</a></li>            
           </ul>
-	        <form action="list.php" class="navbar-form navbar-right" method="get">
+	        <form action="catalog.php" class="navbar-form navbar-right" method="get">
 				<div class="form-group">
 					<input type="text" name="s" class="form-control" placeholder="Search">
 				</div>
