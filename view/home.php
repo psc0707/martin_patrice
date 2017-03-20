@@ -1,5 +1,4 @@
 <?php foreach ($sessionsList as $currentLocation=>$currentSessionsList) :?>
-
 	<div class="panel panel-primary">
 	  <div class="panel-heading">
 	    <h3 class="panel-title"><?= $currentLocation ?></h3>
@@ -24,7 +23,6 @@
 		</tbody>
 		</table>
 	</div>
-
 <?php endforeach; ?>
 
 <div class="panel panel-primary">
