@@ -36,35 +36,35 @@ $sql = 'SELECT `mov_id`, `mov_title`, `mov_released`, `mov_director`, `mov_runti
 				WHERE 1=1 
 		';			 
 
-// Si l'ID session est fourni => filtrer sur cet ID
-if ($sessionId > 0) {
-	$sql .= '
-		AND session_ses_id = :sessionId';
-}
-// Si recherche
-if ($searchWord != '') {
-	$sql .= '
-		AND (
-			stu_email LIKE :search
-			OR stu_lastname LIKE :search
-			OR stu_firstname LIKE :search
-			OR cit_name LIKE :search
-		)
-	';
-}
-else {
-	$sql .= '		
-		LIMIT '.$pagination.' offset '.$pageSkip * $pagination;
-}
-print_r($sql);exit;
+// // Si l'ID session est fourni => filtrer sur cet ID
+// if ($sessionId > 0) {
+// 	$sql .= '
+// 		AND session_ses_id = :sessionId';
+// }
+// // Si recherche
+// if ($searchWord != '') {
+// 	$sql .= '
+// 		AND (
+// 			stu_email LIKE :search
+// 			OR stu_lastname LIKE :search
+// 			OR stu_firstname LIKE :search
+// 			OR cit_name LIKE :search
+// 		)
+// 	';
+// }
+// else {
+// 	$sql .= '		
+// 		LIMIT '.$pagination.' offset '.$pageSkip * $pagination;
+// }
+// print_r($sql);
 
 $sth = $pdo->prepare($sql);
-if ($sessionId > 0) {
-	$sth->bindValue(':sessionId', $sessionId);
-}
-if ($searchWord != '') {
-	$sth->bindValue(':search', '%'.$searchWord.'%');
-}
+// if ($sessionId > 0) {
+// 	$sth->bindValue(':sessionId', $sessionId);
+// }
+// if ($searchWord != '') {
+// 	$sth->bindValue(':search', '%'.$searchWord.'%');
+// }
 
 if ($sth->execute() === false) {
 	print_r($sth->errorInfo());
