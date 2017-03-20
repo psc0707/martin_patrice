@@ -1,9 +1,13 @@
 <?php
 
-$sessionList = 'SELECT loc_name,tra_name, `ses_id`, `ses_start_date`, `ses_end_date`, `ses_number` FROM session
-	INNER JOIN location ON location.loc_id = session.location_loc_id
-    INNER JOIN training ON training.tra_id = session.training_tra_id
-	GROUP BY location.loc_name,ses_number';
+$sessionList = '
+SELECT loc_name,tra_name, `ses_id`, `ses_start_date`, `ses_end_date`, `ses_number`
+	FROM session
+	inner join location on location.loc_id = session.location_loc_id
+    inner join training on training.tra_id = session.training_tra_id
+	group by location.loc_name,ses_number
+';
+
 
 $pagination = 5;
 // print_r($_GET['page']);
@@ -14,34 +18,57 @@ if (!empty($_GET['page']) && ctype_digit($_GET['page'])) {
 	$pageSkip = 0;
 }
 
-$studentsList = 'SELECT stu_id, stu_lastname, stu_firstname, stu_email, stu_birthdate FROM student
+$studentsList = '
+	SELECT stu_id, stu_lastname, stu_firstname, stu_email, stu_birthdate
+	FROM student
 	ORDER BY stu_lastname ASC
-	LIMIT '.$pagination.' offset '.$pageSkip * $pagination.'';
+	limit '.$pagination.' offset '.$pageSkip * $pagination.'
+	';
 
-$studentsListSessionId = 'SELECT stu_id, stu_lastname, stu_firstname, stu_email, stu_birthdate, session_ses_id,tra_name,loc_name FROM student
-	INNER JOIN session ON session.ses_id = student.session_ses_id
-	INNER JOIN location ON location.loc_id = session.location_loc_id
-	INNER JOIN training ON training.tra_id = session.training_tra_id
-    WHERE student.session_ses_id = :param
+$studentsListSessionId = '
+	SELECT stu_id, stu_lastname, stu_firstname, stu_email, stu_birthdate, session_ses_id,tra_name,loc_name
+	FROM student
+	inner join session on session.ses_id = student.session_ses_id
+	inner join location on location.loc_id = session.location_loc_id
+	inner join training on training.tra_id = session.training_tra_id
+    where student.session_ses_id = :param
 	ORDER BY stu_lastname ASC
-	LIMIT '.$pagination.' offset '.$pageSkip * $pagination.'';
+	limit '.$pagination.' offset '.$pageSkip * $pagination.'
+	';
 
-$student = 'SELECT stu_id, stu_lastname, stu_firstname, stu_email, stu_birthdate,
-	(DATEDIFF(now(),stu_birthdate) /(365*60*60*24)) AS age,
-	stu_friendliness, session_ses_id, city.cit_name,training.tra_name FROM student
-	INNER JOIN city ON city.cit_id = student.city_cit_id
-	INNER JOIN session ON session.ses_id = student.session_ses_id
-	INNER JOIN training ON training.tra_id= session.training_tra_id
-	WHERE stu_id = :param
-	ORDER BY stu_lastname ASC';
+$student = '
+	SELECT stu_id, stu_lastname, stu_firstname, stu_email, stu_birthdate,
+	(DATEDIFF(now(),stu_birthdate) /(365*60*60*24)) as age,
+	stu_friendliness, session_ses_id, city.cit_name,training.tra_name
 
-$cityTrain = 'SELECT loc_id, loc_name, cou_id, cou_name, cit_id, cit_name FROM location
-	INNER JOIN country ON country.cou_id = location.country_cou_id
-	INNER JOIN city ON city.country_cou_id = country.cou_id
-	WHERE city.cit_name IN("Luxembourg","Metz")
-	GROUP BY location.loc_name';
+	FROM student
+	inner join city on city.cit_id = student.city_cit_id
+	inner join session on session.ses_id = student.session_ses_id
+	inner join training on training.tra_id= session.training_tra_id
+	
 
-$cityStudent = 'SELECT cit_id, `cit_name`, `cit_inserted`, country_cou_id FROM city';
+	where stu_id = :param
+
+	ORDER BY stu_lastname ASC
+';
+
+$cityTrain = '
+	SELECT loc_id 
+		,loc_name 		
+		,cou_id 
+		,cou_name 		
+		,cit_id 
+		,cit_name 				
+	from location
+	inner join country on country.cou_id = location.country_cou_id
+	inner join city on city.country_cou_id = country.cou_id
+	where city.cit_name in("Luxembourg","Metz")
+	group by location.loc_name
+';
+$cityStudent = '
+	SELECT cit_id, `cit_name`, `cit_inserted`, country_cou_id		
+	from city
+';
 
 
 function sqlSearch($sqlReq,$param=0) {
