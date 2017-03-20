@@ -2,7 +2,7 @@
 		<br><br>
 		<div class="panel panel-default">
   			<div class="panel-body text-center">
-  				proGweb SARL &copy; <?= date('Y') ?> - Tous droits réservés Yeah<br>
+  				Martin&Patrice &copy; <?= date('Y') ?> - Tous droits réservés Yeah<br>
   				<a href="<?= $socialLinks->facebook->shareUrl ?>">Facebook</a>&nbsp;|
   				<a href="<?= $socialLinks->twitter->shareUrl ?>">Twitter</a>&nbsp;|
   				<a href="<?= $socialLinks->linkedin->shareUrl ?>">LinkedIn</a>
