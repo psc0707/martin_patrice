@@ -1,5 +1,10 @@
 $(document).ready(function() {
 	var listFilms;	
+	param = {
+					page : 1,
+					pagination : 5
+			};
+
 	loadMovies();
 });
 
@@ -9,12 +14,12 @@ function loadMovies(){
 		method: 'GET',
 		url: 'ajax/catalog.php',
 		dataType:'json',
-		data:{},
+		data: param,
 		success: function(response){
 				// console.log(response + ' '+ response.code);
 				if (response.code != 0) {
 
-					$('#itemMovies').html('<tr></tr>');		
+					$('#itemMovies').html('');
 					
 					$.each(response.data,function(key,value) {
 						
@@ -25,10 +30,10 @@ function loadMovies(){
 									+ '</td>'
 									+ '<td class="well">' + value.mov_synopsis + '</td>'								   
 								    + '<td>' 
-								    + '<a class="btn btn-xs btn-success" href="details.php?mov_id="' + value.mov_id + '>Détails..</a>'
+								    + '<a class="btn btn-xs btn-success" href="details.php?movId="' + value.mov_id + '>Détails..</a>'
 								    + '<br>'
 								    + '<br>'
-								    + '<a class="btn btn-xs btn-success" href="update-movie.php?mov_id="' + value.mov_id + '>Modifier</a></td>'
+								    + '<a class="btn btn-xs btn-success" href="update-movie.php?movId="' + value.mov_id + '>Modifier</a></td>'
 								    ;
 							
 						$('#itemMovies').append('<tr>' + htmlContent + '</tr>');
