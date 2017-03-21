@@ -3,14 +3,14 @@
     <h3 class="panel-title">Ajout d'une catégorie</h3>
   </div>
   <div>
-  	<form class="form-inline">
+  	<form action="" method="post" class="form-inline">
 	  	<select class="selectCategory lenght form-control">
 			<option>choisissez une catégorie</option>
 			<?php foreach ($resultList as $key => $value) : ?>
 			<option> <?= $value['cat_name']; ?> </option> <?php
 			endforeach; ?>
 		</select>
-		<button type="submit" class="selectCategory btn btn-success">OK</button>
+		<a href="add-category.php?category=<?= $value['cat_name']; ?>" type="submit" name="" class="selectCategory btn btn-success">OK</a>
 	</form>
   </div>
   <div  class="panel-body headHome">
