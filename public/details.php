@@ -12,13 +12,14 @@ if (!empty($_GET)) {
 	$movId = $_GET['movId'];	
 }
 
-echo $movId;
+// echo $movId;
 
 $movieDetails = array();
 
 $sql = '
 	SELECT *
 	FROM movies
+	LEFT OUTER JOIN categories ON categories.cat_id = categories_cat_id
 	WHERE mov_id = :movId
 ';
 
@@ -31,10 +32,10 @@ if ($pdoStatement->execute() === false) {
 }
 else {	
 	$movieDetails = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-	print_r($movieDetails);
+	// print_r($movieDetails);
 }
 
-echo $movieDetails['0']['mov_poster'];
+// echo $movieDetails['0']['mov_support'];
 
 
 

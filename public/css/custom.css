@@ -36,14 +36,20 @@ img {
 /*details*/
 
 #posterDetailsMovies{
-	width: 100%;
-	height: 100%;
+	background-repeat: no-repeat;
+	/*width: 100%;*/
+	height: 50%;
 	position: relative;
 	left: 13px;
 	margin-right: 60px;
 }
 
-
+#catName{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	color: #3498db;
+}
 
 
 
