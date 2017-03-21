@@ -75,7 +75,7 @@
   					<input type="text" class="form-control" name="mov_support" value="<?= $movieDetails['mov_support'] ?>" placeholder="" />  					
   				</div>							
 
-				<?php if (!empty($movieInfos['mov_id'])) : ?>
+				<?php if (!empty($movieDetails['mov_id'])) : ?>
 					<input type="submit" class="btn btn-success btn-block" value="Modifier" />
 		    	<?php else : ?>
 					<input type="submit" class="btn btn-success btn-block" value="Ajouter" />
