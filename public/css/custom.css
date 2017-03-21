@@ -6,3 +6,51 @@ img {
 	width: 6vw;
 	/*height: 1vh;*/
 }
+
+
+/*home*/
+
+#searchForm{
+	padding-top: 150px;
+}
+
+#headHome{
+	background-image: url(../../img/banner.jpg);
+	width: 100%;
+	height: 433px;
+}
+
+#searchPanel{
+	width: 500px;
+	margin: 10px auto;
+}
+
+#searchButton{
+	margin-left: 45%;
+}
+
+.center{
+	margin-left: 35%;
+}
+
+/*details*/
+
+#posterDetailsMovies{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	left: 13px;
+	margin-right: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
