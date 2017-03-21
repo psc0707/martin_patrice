@@ -23,7 +23,6 @@ else {
 $pageOffset = ($pageNo-1) * 5;
 
 $pagination = 3;
-// print_r($_GET['page']);
 if (!empty($_GET['page']) && ctype_digit($_GET['page'])) {
 	$pageSkip = $_GET['page'] - 1; 
 } else
@@ -36,35 +35,7 @@ $sql = 'SELECT `mov_id`, `mov_title`, `mov_released`, `mov_director`, `mov_runti
 				WHERE 1=1 
 		';			 
 
-// // Si l'ID session est fourni => filtrer sur cet ID
-// if ($sessionId > 0) {
-// 	$sql .= '
-// 		AND session_ses_id = :sessionId';
-// }
-// // Si recherche
-// if ($searchWord != '') {
-// 	$sql .= '
-// 		AND (
-// 			stu_email LIKE :search
-// 			OR stu_lastname LIKE :search
-// 			OR stu_firstname LIKE :search
-// 			OR cit_name LIKE :search
-// 		)
-// 	';
-// }
-// else {
-// 	$sql .= '		
-// 		LIMIT '.$pagination.' offset '.$pageSkip * $pagination;
-// }
-// print_r($sql);
-
 $sth = $pdo->prepare($sql);
-// if ($sessionId > 0) {
-// 	$sth->bindValue(':sessionId', $sessionId);
-// }
-// if ($searchWord != '') {
-// 	$sth->bindValue(':search', '%'.$searchWord.'%');
-// }
 
 if ($sth->execute() === false) {
 	print_r($sth->errorInfo());

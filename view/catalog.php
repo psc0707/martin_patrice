@@ -19,16 +19,6 @@
 
   <!-- Table -->
   <table class="table">
- <!--  <thead>
-  	<tr>
-		<th>ID</th>
-		<th>Nom</th>
-		<th>Prénom</th>
-		<th>Email</th>
-		<th>Date de naissance</th>
-		<th></th>
-  	</tr>
-  </thead> -->
   <tbody id="itemMovies">
 
   </tbody>
