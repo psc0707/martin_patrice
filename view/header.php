@@ -9,11 +9,8 @@
 	
 	<!-- jQuery -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/custom.css">	
 
-	<style type="text/css">
-		body { padding-top: 70px; }
-		#helloId{float: right; color: #3175AF;}
-	</style>
 </head>
 <body>
 
@@ -27,7 +24,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Matrin.Patrice&Co</a>
+          <a class="navbar-brand" href="index.php">Martin.Patrice&Co</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -47,6 +44,8 @@
     </nav>
     
 	<div class="container">
+
 		<ol class="breadcrumb">
 			<li><a href="index.php">Acceuil</a></li>
+			
 		</ol>
