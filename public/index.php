@@ -2,8 +2,7 @@
 // Inclusion de config.php
 require dirname(dirname(__FILE__)).'/inc/config.php';
 
- // Récupération de données ou autres
-
+// Récupération de données ou autres
 
 
 // A la fin, toujours les vues
