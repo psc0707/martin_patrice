@@ -2,27 +2,43 @@
 // Inclusion de config.php
 require dirname(dirname(__FILE__)).'/inc/config.php';
 
+$catName = '';
 
 if (!empty($_POST)) {
-
-	print_r($_POST);
-	// echo '<br>';
-
-	// Je récupère les données et les traite
-	$catName = strip_tags(strtoupper(trim($_POST['categorie'])));
+	// print_r($_POST);
+	$catName = strip_tags(strtoupper(trim($_POST['newCategory'])));
+	echo $catName;
+}
 
 $sql = '
-	INSERT INTO categories(cat_name) 
-	VALUES (:categorie)
+	SELECT cat_name
+	FROM categories
 ';
-// J'exécute la requête
-$pdoStatement = $pdo->prepare($sql_insert_student);
-$pdoStatement->bindValue(':categorie', $catName, PDO::PARAM_STR);
+
+$results = $pdo->query($sql);
+$resultList = $results->fetchAll(PDO::FETCH_ASSOC); // 
+print_r($resultList);
 
 
 
+// echo $resultList['0']['cat_name'];
 
+// $pdoStatement = $pdo->prepare($sql);
+// $pdoStatement->bindValue(':catName',$catName);
 
+// if ($pdoStatement->execute() === false) {
+// 	print_r($pdo->errorInfo());
+// }
+// else {	
+// 	$movieCategory = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+// }
+
+// if (empty($movieCategory)) {
+// 		$verifOK[] = 'La catégorie a bien été ajoutée';
+// 	}
+// 	else {
+// 		$verifNOOK[] = 'La catégorie a bien été ajoutée';
+// 	}
 
 
 
