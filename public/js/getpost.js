@@ -19,9 +19,11 @@ function loadMovies(){
 					$.each(response.data,function(key,value) {
 						
 						htmlContent = '<td>' +  '<img src="'+ value.mov_poster + '" alt="img"></td>'
-									+ '<td>' + value.mov_id + '</td>'
-									+ '<td>' + value.mov_title + '</td>'
-									+ '<td>' + value.mov_synopsis + '</td>'								   
+									+ '<td>#' + value.mov_id + '</td>'
+									+ '<td>'
+										+ '<a href="details.php?mov_id="' + value.mov_id + '><strong>' + value.mov_title  + '</strong></a>'
+									+ '</td>'
+									+ '<td class="well">' + value.mov_synopsis + '</td>'								   
 								    + '<td>' 
 								    + '<a class="btn btn-xs btn-success" href="details.php?mov_id="' + value.mov_id + '>Détails..</a>'
 								    + '<br>'
