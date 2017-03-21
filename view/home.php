@@ -26,7 +26,7 @@
 		      <div class="caption">
 		        <h3 class="center"><?php echo $movie1['mov_title']; ?></h3>
 		        <p><?php echo $movie1['mov_synopsis']; ?></p>
-		        <p><a href="#" class="center btn btn-success" role="button">See movie</a></p>
+		        <p><a href="details.php?movId=<?= $movie1['mov_id']; ?>" class="center btn btn-success" role="button">See movie</a></p>
 		      </div>
 	    	</div>
 		</div>
@@ -37,7 +37,7 @@
 		      <div class="caption">
 		        <h3 class="center"><?php echo $movie2['mov_title']; ?></h3>
 		        <p><?php echo $movie2['mov_synopsis']; ?></p>
-		        <p><a href="#" class="center btn btn-success" role="button">See movie</a></p>
+		        <p><a href="details.php?movId=<?= $movie2['mov_id']; ?>" class="center btn btn-success" role="button">See movie</a></p>
 		      </div>
 	    	</div>
 		</div>
@@ -48,7 +48,7 @@
 		      <div class="caption">
 		        <h3 class="center"><?php echo $movie3['mov_title']; ?></h3>
 		        <p><?php echo $movie3['mov_synopsis']; ?></p>
-		        <p><a href="#" class="center btn btn-success" role="button">See movie</a></p>
+		        <p><a href="details.php?movId=<?= $movie3['mov_id']; ?>" class="center btn btn-success" role="button">See movie</a></p>
 		      </div>
 	    	</div>
 		</div>
