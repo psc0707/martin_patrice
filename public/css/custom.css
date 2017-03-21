@@ -14,7 +14,7 @@ img {
 	padding-top: 150px;
 }
 
-#headHome{
+.headHome{
 	background-image: url(../../img/banner.jpg);
 	width: 100%;
 	height: 433px;
@@ -52,11 +52,22 @@ img {
 }
 
 
+/*create categorie*/
+
+#catCreate{
+	margin-right: 30px;
+	width: 250px;
+}
 
 
+#middle{
+	line-height: 215px;
+	margin-top: 150px;
+	vertical-align: center;
+}
 
-
-
-
+.lenght300px{
+	width: 300px;
+}
 
 

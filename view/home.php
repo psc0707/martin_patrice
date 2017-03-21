@@ -3,7 +3,7 @@
 
 	<label>This Project has been created by Patrice, Martin and Richard. The Webpage uses the OMDb API via CRUD in order to receive further Details</label>
 </div> -->
-<div id="headHome">
+<div class="headHome">
 	<form id="searchForm" >
 		<input id="searchPanel" class="form-control" type="text" name="search" id="search_movies" placeholder="Search">
 		<!-- <input type="hidden" name="search_form" value="1"> --><br>

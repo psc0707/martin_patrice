@@ -1,10 +1,10 @@
 $(document).ready(function() {
-	loadRooms();
+	loadMovies();
 });
 
 
 // Fonction permettant de charger tous les salons de discussion
-function loadRooms() {
+function loadMovies() {
 	$.ajax({
 		method: 'GET',
 		url: 'http://wf3.progweb.fr/chat-api/room/get/',
