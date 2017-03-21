@@ -34,19 +34,16 @@
             <li><a href="add-movie.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un film</a></li>
              <li><a href="add-category.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter une catégorie</a></li>          
           </ul>
-	        <form action="catalog.php" class="navbar-form navbar-right" method="get">
-				<div class="form-group">
-					<input type="text" name="s" class="form-control" placeholder="Search">
-				</div>
-				<button type="submit" class="btn btn-success btn-sm">Rechercher</button>
-			</form>
+    	    <form action="catalog.php" class="navbar-form navbar-right" method="get">
+    				<div class="form-group">
+    					<input type="text" name="s" class="form-control" placeholder="Search">
+    				</div>
+    				<button type="submit" class="btn btn-success btn-sm">Rechercher</button>
+    			</form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     
 	<div class="container">
 
-		<ol class="breadcrumb">
-			<li><a href="index.php">Acceuil</a></li>
-			
-		</ol>
+		

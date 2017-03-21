@@ -35,9 +35,10 @@ $movieId = isset($_GET['movieId']) ? intval($_GET['movieId']) : 0;
 // Je récupère le mot recherché
 $searchWord = isset($_GET['s']) ? trim(strip_tags($_GET['s'])) : '';
 
+// print_r('$searchWord '.$searchWord.'<br>');
 
 $sql = 'SELECT `mov_id`, `mov_title`, `mov_released`, `mov_director`, `mov_runtime`, `mov_actors`, `mov_synopsis`, `mov_language`, `mov_poster`, `mov_rating`, 					`mov_support`, `mov_link`, `Categories_cat_id`
-				FROM movies
+		FROM movies
         LEFT OUTER JOIN categories on categories.cat_id = categories_cat_id
 				WHERE 1=1 
 		';			 
