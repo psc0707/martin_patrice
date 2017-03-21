@@ -13,22 +13,9 @@
 <div class="panel panel-primary">
 	<div class="panel-heading"><h3 class="panel-title">Newest Additions</h3></div>
 	<!-- Table -->
-	<table class="table">
-	<thead>
-		<tr>
-			<th>Movie 1</th>
-			<th>Movie 2</th>
-			<th>Movie 3</th>
-			<th>Movie 4</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php foreach ($studentsVilleList as $row) : ?>
-		<tr>
-			<td><?= $row['cit_name'] ?></td>
-			<td><?= $row['nb'] ?></td>
-		</tr>
-		<?php endforeach; ?>
-	</tbody>
+	<table class="table" id="recentMovies">
+		<thead>
+		</thead>
 	</table>
 </div>
+<script type="text/javascript" src="js/getpost.js"></script>
