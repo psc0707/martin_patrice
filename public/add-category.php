@@ -19,9 +19,7 @@ $results = $pdo->query($sql);
 $resultList = $results->fetchAll(PDO::FETCH_ASSOC); // 
 print_r($resultList);
 
-foreach ($resultList as $key => $value) {
-	echo $resultList['cat_name'];
-}
+
 
 // echo $resultList['0']['cat_name'];
 

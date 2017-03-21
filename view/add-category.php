@@ -3,12 +3,15 @@
     <h3 class="panel-title">Ajout d'une catégorie</h3>
   </div>
   <div>
-  	<select class="lenght form-control">
-		<option>choisissez une catégorie</option>
-		<?php foreach ($resultList as $key => $value) : ?>
-		<option <?= $resultList['cat_name']; ?> </option> <?php
-		endforeach; ?>
-	</select>
+  	<form class="form-inline">
+	  	<select class="selectCategory lenght form-control">
+			<option>choisissez une catégorie</option>
+			<?php foreach ($resultList as $key => $value) : ?>
+			<option> <?= $value['cat_name']; ?> </option> <?php
+			endforeach; ?>
+		</select>
+		<button type="submit" class="selectCategory btn btn-success">OK</button>
+	</form>
   </div>
   <div  class="panel-body headHome">
   	<form id="middle" class="form-inline" action="" method="post">
