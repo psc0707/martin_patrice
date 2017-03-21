@@ -1,8 +1,7 @@
-<div class="row">
-
+<div class="row">  
   <div id="posterDetailsMovies" style=" background-image: url( <?php echo $movieDetails['0']['mov_poster']; ?> )" class="col-md-4">
   </div>
-  <div class="col-md-1"></div>
+  <div class="col-md-offset-1"></div>
   <div class="col-md-7">
     <div class="row">
       <div class="col-md-8">

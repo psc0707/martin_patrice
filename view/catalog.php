@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <!-- Default panel contents -->
-  <div class="panel-heading">Liste des films</div>
+  <div class="panel-heading">Catalogue</div>
   <div class="panel-body">
   	<?php if ($searchWord != '') : ?>
 		  <?= $nbResults ?> résultat(s) pour la recherche "<?= $searchWord ?>"
@@ -28,7 +28,7 @@
             <a class="btn btn-xs btn-success" href="details.php?movId=<?= $currentMovie['mov_id']; ?>">Détails..</a>
             <br>
             <br>
-            <a class="btn btn-xs btn-success" href="update-movie.php?movId=<?= $currentMovie['mov_id']; ?>">Modifier</a>            
+            <a class="btn btn-xs btn-success" href="add-movie.php?movId=<?= $currentMovie['mov_id']; ?>">Modifier</a>            
         </td>        
         
       </tr>

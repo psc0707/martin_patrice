@@ -8,7 +8,8 @@ require dirname(dirname(__FILE__)).'/inc/config.php';
 
 if (!empty($_GET)) {
 	// Debug
-	print_r($_GET);
+	// print_r($_GET);
+	echo '.';
 	$movId = $_GET['movId'];	
 }
 
