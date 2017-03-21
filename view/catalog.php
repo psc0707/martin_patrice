@@ -2,26 +2,38 @@
   <!-- Default panel contents -->
   <div class="panel-heading">Liste des films</div>
   <div class="panel-body">
-  	<?php if (!empty($_GET['deleted'])) : ?>
-		<div class="alert alert-success" role="alert">
-			&Eacute;lément supprimé
-		</div>
-  	<?php endif; ?>
   	<?php if ($searchWord != '') : ?>
-		<?= $nbResults ?> résultat(s) pour la recherche "<?= $searchWord ?>"
-	<?php else : ?>
+		  <?= $nbResults ?> résultat(s) pour la recherche "<?= $searchWord ?>"
+	  <?php else : ?>
 	    <?php if ($pageNo>1) : ?>
-	   		<a href="list.php?page=<?= $pageNo-1 ?>&sesId=<?= $sessionId ?>" class="btn btn-xs btn-success">précédent</a>
-		<?php endif; ?>
-	    <a href="list.php?page=<?= $pageNo+1 ?>&sesId=<?= $sessionId ?>" class="btn btn-xs btn-success">suivant</a>
+	   		<a href="catalog.php?page=<?= $pageNo-1 ?>&sesId=<?= $sessionId ?>" class="btn btn-xs btn-success">précédent</a>
+		  <?php endif; ?>
+      <span><strong>Page : <?= $pageNo ?></strong></span>
+      <?php if ($nbResults>0) : ?>
+	     <a href="catalog.php?page=<?= $pageNo+1 ?>&sesId=<?= $sessionId ?>" class="btn btn-xs btn-success">suivant</a>
+      <?php endif; ?>
   	<?php endif; ?>
   </div>
 
   <!-- Table -->
-  <table class="table">
-  <tbody id="itemMovies">
-
+  <table class="table">  
+  <tbody>    
+    <?php foreach ($moviesList as $currentMovie) : ?>      
+      <tr>
+        <td><img src="<?= $currentMovie['mov_poster']; ?>" alt="img"></td>
+        <td>#<strong><?= $currentMovie['mov_id']; ?></strong></td>
+        <td><strong><?= $currentMovie['mov_title']; ?></strong></td>
+        <td class="well"><?= $currentMovie['mov_synopsis']; ?></td>
+        <td>
+            <a class="btn btn-xs btn-success" href="details.php?movId=<?= $currentMovie['mov_id']; ?>">Détails..</a>
+            <br>
+            <br>
+            <a class="btn btn-xs btn-success" href="update-movie.php?movId=<?= $currentMovie['mov_id']; ?>">Modifier</a>            
+        </td>        
+        
+      </tr>
+    <?php endforeach; ?>
+    
   </tbody>
   </table>
 </div>
-<script type="text/javascript" src="js/getpost.js"></script>
