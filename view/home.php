@@ -4,10 +4,10 @@
 	<label>This Project has been created by Patrice, Martin and Richard. The Webpage uses the OMDb API via CRUD in order to receive further Details</label>
 </div>
 
-<form>
-	<input type="text" name="search" id="search_movies" placeholder="Search">
-	<input type="hidden" name="search_form" value="1">
-	<input type="submit" name="submit_form" value="Search">
+<form >
+	<input class="form-control" type="text" name="search" id="search_movies" placeholder="Search">
+	<!-- <input type="hidden" name="search_form" value="1"> --><br>
+	<button id="search" class="btn btn-success" type="submit" name="submit_form">Search for movies</button>
 </form><br>
 
 <div class="panel panel-primary">
