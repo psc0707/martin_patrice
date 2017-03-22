@@ -1,5 +1,11 @@
 <?php
 
+$paginationTable = [
+					5 => '05 films/page',
+					7 => '07 films/page',
+					10 => '10 films/page'
+						];
+
 function movieDetail($movId) {	
 	global $pdo;
 	$movieDetails = array(
