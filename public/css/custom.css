@@ -59,10 +59,17 @@ img {
 }
 
 
-#middle{
+#newCategory{
 	line-height: 215px;
 	margin-top: 150px;
 	vertical-align: center;
+}
+
+#modifyCategory{
+	/*padding-top: 180px;*/
+	padding-left: 400px;
+	position: relative;
+	top: 100px;
 }
 
 .lenght{
@@ -72,4 +79,8 @@ img {
 .selectCategory{
 	margin: 10px;
 	float: left;
+}
+
+#createcat{
+	margin-left: 20px;
 }

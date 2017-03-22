@@ -2,19 +2,12 @@
 // Inclusion de config.php
 require dirname(dirname(__FILE__)).'/inc/config.php';
 
-$newCatName = '';
-$modCatName = '';
+$catName = '';
 
 if (!empty($_POST)) {
-	// print_r($_POST);
-	$newCatName = strip_tags(trim($_POST['newCategory']));
-	// echo $newCatName;
-}
-
-if (!empty($_GET)) {
-	// print_r($_GET);
-	$modCatName = strip_tags(trim($_GET['modifyCategory']));
-	// echo $modCatName;
+	print_r($_POST);
+	$catName = strip_tags(strtoupper(trim($_POST['newCategory'])));
+	echo $catName;
 }
 
 $sql = '
