@@ -8,7 +8,6 @@ if (!empty($_POST)) {
 	print_r($_POST);
 	$catName = strip_tags(strtoupper(trim($_POST['newCategory'])));
 	echo $catName;
-}
 
 $sql = '
 	SELECT cat_name
@@ -19,7 +18,7 @@ $results = $pdo->query($sql);
 $resultList = $results->fetchAll(PDO::FETCH_ASSOC); // 
 print_r($resultList);
 
-
+}
 
 // echo $resultList['0']['cat_name'];
 

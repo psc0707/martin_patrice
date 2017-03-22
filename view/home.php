@@ -12,13 +12,24 @@
 </div><br>
 
 <!-- Mettre les catégories avec le plus de movies -->
-
+<div class="panel panel-primary">
+	<div class="panel-heading">
+	</div><br>
+	<div class="row">
+		<div class="col-sm-4 col-md-4">
+			<table>
+				<?php foreach ($displayArray as $key => $value) {
+					echo $displayArray[$key];
+				}?><br>
+				<? endforeach?>
+			</table>
+		</div>
+	</div>
+</div>
 
 <div class="panel panel-primary">
 	<div class="panel-heading"><h3 class="panel-title">Newest Additions</h3></div><br>
 	<!-- Table -->
-	
-
 	<div class="row">
 		<div class="col-sm-4 col-md-4">
 	    	<div class="thumbnail">
