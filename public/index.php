@@ -9,10 +9,10 @@ $displayArray = array();
 $lastMovies = array();
 
 // Define how many objects are to appear on the front page
-$displaylength = 255;
+$displaylength = 4;
 
 
-$sql = 'SELECT cat_id, cat_name FROM categories	ORDER BY cat_id	DESC LIMIT '.$displaylength;
+$sql = 'SELECT cat_id, cat_name FROM categories	ORDER BY RAND()	DESC LIMIT '.$displaylength;
 $sth = $pdo->query($sql);
 
 if ($sth === false) {
