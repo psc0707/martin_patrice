@@ -32,16 +32,19 @@ if (!empty($_POST)) {
   die(json_encode($returnedJsonArray));
 }
 
+// La catégorie existe o/n?
 $genre = readGenre($cat_name);
 
 // print_r($genre);
 // print_r($genre['cat_id']);
 
-// if (sizeof($genre) == 0)   {
-//     echo "Insert <br>";
-// } else {
-//     print_r($genre);
-// }
+if (sizeof($genre) == 0)   {
+  // print_r($genre);
+    $genreToInsert = addGenre($cat_name);
+} else {
+    $genreToInsert = $genre['cat_id'];
+}
+  // print_r($genreToInsert);
 
 $sql = 'INSERT INTO `movies`
       (`mov_title`,
@@ -72,7 +75,7 @@ $sth->bindValue(':mov_actors',$mov_actors);
 $sth->bindValue(':mov_synopsis',$mov_synopsis);
 $sth->bindValue(':mov_poster',$mov_poster);
 $sth->bindValue(':mov_support',"NAS");
-$sth->bindValue(':cat_id',$genre['cat_id']);
+$sth->bindValue(':cat_id',$genreToInsert);
 
 // print_r($sth->debugDumpParams());
 
@@ -80,7 +83,7 @@ if ($sth->execute() === false) {
   print_r($sth->errorInfo());
 }
 else {
-  print_r('Inserted : ');
+  // print_r('Inserted : ');
   $movieInserted = $pdo->lastInsertId(); 
  
 // Je structure mon tableau à encoder en JSON
@@ -121,20 +124,43 @@ function readGenre($catName) {
   $sth->bindValue(':catName',$catName);
 
   if ($sth->execute() === false) {
+
     print_r($sth->errorInfo());
   }
-  else {
-    $genre = $sth->fetch(PDO::FETCH_ASSOC);
-    // $nbGenre = $sth->rowCount();
+  else {    
+    if ($sth->rowCount() != 0) {
+      $genre = $sth->fetch(PDO::FETCH_ASSOC);    
+    }
+    // print_r($catName);
     // print_r($genre);
     return($genre);
   }
 
 }
 
-function addMovie($catName) {
+function addGenre($catName) {
   global $pdo;
-  
+  $sql = 'INSERT INTO `categories`
+        (`cat_name`
+        )
+        VALUES (            
+              :cat_name
+                      )
+    ';       
+
+  $sth = $pdo->prepare($sql);
+  $sth->bindValue(':cat_name',$catName);
+
+  // print_r($sth->debugDumpParams());
+
+  if ($sth->execute() === false) {
+    print_r($sth->errorInfo());
+  }
+  else {
+    // print_r('Inserted : ');
+    $genreInserted = $pdo->lastInsertId(); 
+    return  $genreInserted;
+  }
 
 }
 
