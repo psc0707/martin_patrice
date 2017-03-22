@@ -7,7 +7,6 @@ $categories = array();
 $results = array();
 $displayArray = array();
 $lastMovies = array();
-$counter;
 
 // Define how many objects are to appear on the front page
 $displaylength = 4;
@@ -30,10 +29,14 @@ else {
 		else {
 			$results = $sth->fetchAll(PDO::FETCH_ASSOC);
 			$temp =  implode(",", $results[0]);
-			$displayArray[] = '<th>'.$value['cat_name'].'</th>'.'<td>'.$temp.'</td>';
+			$displayArray[] = 	'<tr>
+									<a href=Test>'.$value['cat_name'].'</a>
+								</tr>'.
+								'<tr>'.$temp.'</tr><br>';
 		}
 }
 
+echo $displayArray[0];
 
 $sql = 'SELECT * FROM movies ORDER BY mov_id DESC LIMIT 3';
 $sth = $pdo->query($sql);

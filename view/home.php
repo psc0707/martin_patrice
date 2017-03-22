@@ -20,8 +20,8 @@
 			<table>
 				<?php foreach ($displayArray as $key => $value) {
 					echo $displayArray[$key];
-				}
-				?>
+				}?><br>
+				<? endforeach?>
 			</table>
 		</div>
 	</div>
