@@ -2,61 +2,53 @@
 // Inclusion de config.php
 require dirname(dirname(__FILE__)).'/inc/config.php';
 
-// Récupération de données ou autres
-
+// Defining Arrays
+$categories = array();
+$results = array();
+$displayArray = array();
 $lastMovies = array();
-$sql = '
-	SELECT *
-	FROM movies
-	ORDER BY mov_id DESC
-	LIMIT 3
-';
+$counter;
+
+// Define how many objects are to appear on the front page
+$displaylength = 4;
+
+
+$sql = 'SELECT cat_id, cat_name FROM categories	ORDER BY cat_id	DESC LIMIT '.$displaylength;
+$sth = $pdo->query($sql);
+
+if ($sth === false) {
+	print_r($sth->errorInfo());
+}
+else {
+	$categories = $sth->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($categories as $key => $value) {
+		$sql = 'SELECT COUNT(categories_cat_id)	AS results FROM movies WHERE categories_cat_id='.$value['cat_id'];
+		$sth = $pdo->query($sql);
+		if ($sth === false) {
+			print_r($sth->errorInfo());
+		}
+		else {
+			$results = $sth->fetchAll(PDO::FETCH_ASSOC);
+			$temp =  implode(",", $results[0]);
+			$displayArray[] = '<th>'.$value['cat_name'].'</th>'.'<td>'.$temp.'</td>';
+		}
+}
+
+
+$sql = 'SELECT * FROM movies ORDER BY mov_id DESC LIMIT 3';
 $sth = $pdo->query($sql);
 if ($sth === false) {
 	print_r($sth->errorInfo());
 }
 else {
 	$lastMovies = $sth->fetchAll(PDO::FETCH_ASSOC);
+	$movie1 = $lastMovies[0];
+	$movie2 = $lastMovies[1];
+	$movie3 = $lastMovies[2];
+}
 }
 
-// print_r($lastMovies);
-
-$movie1 = $lastMovies[0];
-
-// print_r($movie1);
-
-$movie2 = $lastMovies[1];
-
-// print_r($movie2);
-
-$movie3 = $lastMovies[2];
-
-// print_r($movie3);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // A la fin, toujours les vues
-
 include dirname(dirname(__FILE__)).'/view/header.php';
 include dirname(dirname(__FILE__)).'/view/home.php';
 include dirname(dirname(__FILE__)).'/view/footer.php';
