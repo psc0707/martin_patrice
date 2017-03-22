@@ -5,7 +5,9 @@ require dirname(dirname(__FILE__)).'/inc/config.php';
 // Defining Arrays
 $categories = array();
 $results = array();
+$displayArray = array();
 $lastMovies = array();
+$counter;
 
 // Define how many objects are to appear on the front page
 $displaylength = 4;
@@ -28,9 +30,7 @@ else {
 		else {
 			$results = $sth->fetchAll(PDO::FETCH_ASSOC);
 			$temp =  implode(",", $results[0]);
-
-			echo '<tr>'.$value['cat_name'].': </tr>';
-			echo '<td>'.$temp.' </td>';
+			$displayArray[] = '<th>'.$value['cat_name'].'</th>'.'<td>'.$temp.'</td>';
 		}
 }
 

@@ -18,6 +18,10 @@
 	<div class="row">
 		<div class="col-sm-4 col-md-4">
 			<table>
+				<?php foreach ($displayArray as $key => $value) {
+					echo $displayArray[$key];
+				}
+				?>
 			</table>
 		</div>
 	</div>
