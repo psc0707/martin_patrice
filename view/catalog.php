@@ -5,6 +5,18 @@
   	<?php if ($searchWord != '') : ?>
 		  <?= $nbResults ?> résultat(s) pour la recherche "<?= $searchWord ?>"
 	  <?php else : ?>
+      <!-- Choix de la Pagination -->
+    <form id="pageForm" action="" method="get" class="form-inline">
+      <select name="paginationSelected" class="lenght form-control">
+        <option value="0">Pagination</option>
+        <?php foreach ($paginationTable as $key => $value) : ?>
+          <option value="<?= $key; ?>"> <?= $value; ?> </option> <?php
+        endforeach; ?>
+      </select>  
+      <br>    
+      <br>    
+    </form>
+
 	    <?php if ($pageNo>1) : ?>
 	   		<a href="catalog.php?page=<?= $pageNo-1 ?>&sesId=<?= $sessionId ?>" class="btn btn-xs btn-success">précédent</a>
 		  <?php endif; ?>
