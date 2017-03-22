@@ -19,16 +19,19 @@ $sql = '
 
 if (!empty($_POST)) {
 	print_r($_POST);
+	$catOriginalId = strip_tags(trim($_POST['catOriginalId']));
 	$newCatName = strip_tags(trim($_POST['newCategory']));
 	echo $newCatName;
 
-	if ($catOriginalName >=1) {
+	if ($catOriginalId >=1) {
 		$sql = '
-		INSERT INTO categories (cat_name)
-		VALUES (:catName)
+		UPDATE categories
+		SET cat_name = :catName
+		WHERE cat_id = :id
+		
 	';
 	$sth = $pdo->prepare($sql);
-	$sth->bindValue(':catName', $catOriginalName);
+	$sth->bindValue(':catName', $catOriginalId);
 	if ($sth->execute() === false) {
 			print_r($sth->errorInfo());
 		}
