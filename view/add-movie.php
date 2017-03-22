@@ -89,37 +89,5 @@
   </div>
 </div>
 
-
-<script type="text/javascript">
-	var imdb_data;
-	$(document).ready(function() {
-		$("#imdb" ).on( "submit", function( event ) {
-			event.preventDefault();
-			// searchMovie = $( this ).serialize();
-			searchMovie = $('#imdb input').val();
-			// console.log(searchMovie);
-		    $.ajax({
-		        method: "GET",
-		        url: "http://www.omdbapi.com",
-		        data: {
-		              t : searchMovie
-		            },
-		        dataType : 'json'
-		        })
-		        .done(function(response) {	  		        	
-		            console.log(response);
-		            // console.log('response.genre '+response.Genre);
-		            $("input[name*='cat_name']").val(response.Genre);
-		            $("input[name*='mov_title']").val(response.Title);
-		            $("input[name*='mov_released']").val(response.Released);
-		            $("input[name*='mov_language']").val(response.Language);
-		            $("input[name*='mov_actors']").val(response.Actors);
-		            $("textarea[name*='mov_synopsis']").val(response.Plot);
-		            $("input[name*='mov_poster']").val(response.Poster);
-		          })
-		        .fail(function() {
-		            console.log( "bad news... ERROR !" );
-		        });
-		});
-	});
-</script>
+<!-- Appel Ajax pour le CRUD -->
+<script type="text/javascript" src="./js/crud.js"></script>
