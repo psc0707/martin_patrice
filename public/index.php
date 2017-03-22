@@ -9,7 +9,7 @@ $displayArray = array();
 $lastMovies = array();
 
 // Define how many objects are to appear on the front page
-$displaylength = 1;
+$displaylength = 255;
 
 
 $sql = 'SELECT cat_id, cat_name FROM categories	ORDER BY cat_id	DESC LIMIT '.$displaylength;
@@ -29,10 +29,7 @@ else {
 		else {
 			$results = $sth->fetchAll(PDO::FETCH_ASSOC);
 			$temp =  implode(",", $results[0]);
-			$displayArray[] = 	'<tr>
-									<a href=Test>'.$value['cat_name'].'</a>
-								</tr>'.
-								'<tr>'.$temp.'</tr><br>';
+			$displayArray[] = '<a href="http://google.com" class="btn btn-success">'.$temp.' '.$value['cat_name'].'</a>';
 		}
 }
 

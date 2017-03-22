@@ -7,7 +7,6 @@ img {
 	/*height: 1vh;*/
 }
 
-
 /*home*/
 
 #searchForm{
@@ -50,14 +49,12 @@ img {
 	color: #3498db;
 }
 
-
 /*create categorie*/
 
 #catCreate{
 	margin-right: 30px;
 	width: 250px;
 }
-
 
 #newCategory{
 	line-height: 215px;

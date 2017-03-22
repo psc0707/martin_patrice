@@ -3,24 +3,12 @@
 		<input id="searchPanel" method="get" class="form-control" type="text" name="s" id="search_movies" placeholder="Search">
 		<!-- <input type="hidden" name="search_form" value="1"> --><br>
 		<button id="searchButton" class="btn btn-success" type="submit" name="submit_form">Search for movies</button>
-	</form><br>
-</div><br>
-
-<!-- Mettre les catégories avec le plus de movies -->
-<div class="panel panel-primary">
-	<div class="panel-heading">
-	</div><br>
-	<div class="row">
-		<div class="col-sm-4 col-md-4">
-			<table>
-				<?php foreach ($displayArray as $key => $value) {
-					echo $displayArray[$key];
-				}?><br>
-				<? endforeach?>
-			</table>
-		</div>
-	</div>
+	</form>
 </div>
+<?php foreach ($displayArray as $key => $value) {
+	echo $displayArray[$key];
+}?><br>
+<? endforeach?>
 
 <div class="panel panel-primary">
 	<div class="panel-heading"><h3 class="panel-title">Newest Additions</h3></div><br>
