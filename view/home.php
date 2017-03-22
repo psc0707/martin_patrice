@@ -1,11 +1,6 @@
-<!-- <div class="panel panel-primary">
-  <div class="panel-heading"><h3 class="panel-title">Introduction</h3></div>
-
-	<label>This Project has been created by Patrice, Martin and Richard. The Webpage uses the OMDb API via CRUD in order to receive further Details</label>
-</div> -->
 <div class="headHome">
-	<form id="searchForm" >
-		<input id="searchPanel" class="form-control" type="text" name="search" id="search_movies" placeholder="Search">
+	<form id="searchForm" action="catalog.php">
+		<input id="searchPanel" method="get" class="form-control" type="text" name="s" id="search_movies" placeholder="Search">
 		<!-- <input type="hidden" name="search_form" value="1"> --><br>
 		<button id="searchButton" class="btn btn-success" type="submit" name="submit_form">Search for movies</button>
 	</form><br>
