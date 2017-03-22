@@ -35,17 +35,15 @@ $(document).ready(function() {
 
 // Ajout/update d'un film en base
 //-------------------------------
-	$("#crudForm" ).on( "submit", function( event ) {		
+	$("#crudForm").on( "submit", function( event ) {		
 		event.preventDefault();
-		movieInfos = $( this ).serialize();
-		
+		movieInfos = $("#crudForm").serialize();
+		// typeCRUD		
 		// console.log(movieInfos);
 	    $.ajax({
 	        method: "POST",
 	        url: "ajax/crud.php",
-	        data: {
-	              movieInfos
-	            },
+	        data: movieInfos,
 	        dataType : 'json'
 	        })
 	        .done(function(response) {	  		        	
@@ -62,6 +60,14 @@ $(document).ready(function() {
 	        .fail(function() {
 	            console.log( "bad news... ERROR !" );
 	        });
+	});
+
+// Reset FORM
+//-------------------------------
+	$("#resetButton").on( "reset", function( event ) {		
+		event.preventDefault();
+		$("textarea").val("");
+		$("input").val("");	    
 	});
 
 });

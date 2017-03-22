@@ -54,18 +54,8 @@
 		</div>
 	</div>
 
-
-
-
-
-
-
-
-
-
 <!-- 	<table class="table" id="recentMovies">
 		<thead>
 		</thead>
 	</table> -->
 </div>
-<script type="text/javascript" src="js/getpost.js"></script>

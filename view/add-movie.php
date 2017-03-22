@@ -2,7 +2,7 @@
   <div class="panel-heading">
     <h3 class="panel-title">
     <?php if (!empty($movieDetails['mov_id'])) : ?>
-    	Modification de <?= $movieDetails['mov_title'] ?>
+    	Modification de <?= $movieDetails['mov_title'] ?>    	
     <?php else : ?>
     	Add Movies
     <?php endif; ?>
@@ -14,7 +14,7 @@
 		<div class="form-group">
 			<input type="text" name="searchImdb" class="form-control" placeholder="Search">
 		</div>
-		<button type="submit" class="btn btn-success btn-sm">Add from Imdb</button>
+		<button type="submit" class="btn btn-success btn-sm">Add from Imdb</button>		
 	</form>
 
   	<?php if (!empty($errorList)) : ?>
@@ -24,10 +24,11 @@
 		  <?php endforeach; ?>
 		</div>
   	<?php endif; ?>
-	<form id="myform" action="" method="post">
+	<form id="crudForm" action="" method="post">		
   		<div class="row">
 	  		<div class="col-md-12 col-sm-12 col-xs-12">
-	  		
+ 				<button id="resetButton" type="reset" class="btn btn-success btn-sm">Reset Form.....</button>	  		
+
 				<div class="form-group">
 					<label>Genre</label>
 					<input type="text" class="form-control" name="cat_name" value="<?= $movieDetails['cat_name'] ?>" placeholder="Genre" />
@@ -77,6 +78,7 @@
 
 				<?php if (!empty($movieDetails['mov_id'])) : ?>
 					<input type="submit" class="btn btn-success btn-block" value="Modifier" />
+					<input id="typeCRUD" type="hidden" value="<?= $movieDetails['mov_id'] ?>" name="" />
 		    	<?php else : ?>
 					<input type="submit" class="btn btn-success btn-block" value="Ajouter" />
 				<?php endif; ?>

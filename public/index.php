@@ -33,28 +33,6 @@ $movie3 = $lastMovies[2];
 
 // print_r($movie3);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // A la fin, toujours les vues
 
 include dirname(dirname(__FILE__)).'/view/header.php';

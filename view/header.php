@@ -30,7 +30,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
             <li><a href="index.php"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Accueil</a></li>
-            <li><a href="catalog.php"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Catégories</a></li>
+            <li><a href="catalog.php"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Catalogue</a></li>
             <li><a href="add-movie.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un film</a></li>
              <li><a href="add-category.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter une catégorie</a></li>          
           </ul>

@@ -4,14 +4,16 @@ function movieDetail($movId) {
 	global $pdo;
 	$movieDetails = array(
 	  'cat_name'    => '',
+	  'mov_id'	    => '',
 	  'mov_title'   => '',
+	  'mov_released'=> '',
+	  'mov_runtime'=> '',
 	  'mov_actors'  => '',
+	  'mov_synopsis' => '',
+	  'mov_language' => '',
 	  'mov_poster'  => '',
 	  'mov_link'    => '',
-	  'mov_support' => '',
-	  'mov_language' => '',
-	  'mov_synopsis' => '',
-	  'mov_released' => '' 
+	  'mov_support' => ''	  
 	);
 	$sql = '
 		SELECT *
