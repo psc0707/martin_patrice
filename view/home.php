@@ -5,6 +5,17 @@
 		<button id="searchButton" class="btn btn-success" type="submit" name="submit_form">Search for movies</button>
 	</form>
 </div>
+
+<form id="category" action="index.php" method="POST" onchange="getData(this);"/>
+	<select name="selection" id="selection" class="form-control" onchange="this.form.submit()"/>
+		<option value="4">4</option>
+		<option value="10">10</option>
+		<option value="20">20</option>
+		<option value="50">50</option>
+		<option value="255">All</option>
+	</select>
+</form>
+
 <?php foreach ($displayArray as $key => $value) {
 	echo $displayArray[$key];
 }?><br>

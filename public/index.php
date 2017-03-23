@@ -7,10 +7,12 @@ $categories = array();
 $results = array();
 $displayArray = array();
 $lastMovies = array();
+$displaylength=0;
 
 // Define how many objects are to appear on the front page
-$displaylength = 4;
-
+    if(isset($_POST['selection'])) {
+        $displaylength = $_POST['selection'];
+    }
 
 $sql = 'SELECT cat_id, cat_name FROM categories	ORDER BY RAND()	DESC LIMIT '.$displaylength;
 $sth = $pdo->query($sql);

@@ -3,19 +3,12 @@
 require dirname(dirname(__FILE__)).'/inc/config.php';
 
 $newCatName = '';
-
 $modCatName = '';
 
-$sql = '
-		SELECT cat_name, cat_id
-		FROM categories
-	';
-
+$sql = 'SELECT cat_name, cat_id	FROM categories';
 	$results = $pdo->query($sql);
 	$resultList = $results->fetchAll(PDO::FETCH_ASSOC); // 
 	print_r($resultList);
-
-
 
 if (!empty($_POST)) {
 	print_r($_POST);
@@ -24,15 +17,10 @@ if (!empty($_POST)) {
 	echo $newCatName;
 
 	if ($catOriginalId >=1) {
-		$sql = '
-		UPDATE categories
-		SET cat_name = :catName
-		WHERE cat_id = :id
-		
-	';
-	$sth = $pdo->prepare($sql);
-	$sth->bindValue(':catName', $catOriginalId);
-	if ($sth->execute() === false) {
+		$sql = 'UPDATE categories SET cat_name = :catName WHERE cat_id = :id';
+		$sth = $pdo->prepare($sql);
+		$sth->bindValue(':catName', $catOriginalId);
+		if ($sth->execute() === false) {
 			print_r($sth->errorInfo());
 		}
 	else {
@@ -47,11 +35,7 @@ if (!empty($_GET)) {
 	$modCatId = strip_tags(trim($_GET['modifyCategory']));
 	echo $modCatId;
 
-$sql = '
-		SELECT cat_name
-		FROM categories
-		WHERE cat_id = :id
-	';
+	$sql = 'SELECT cat_name	FROM categories	WHERE cat_id = :id';
 	$sth = $pdo->prepare($sql);
 	$sth->bindValue(':id', $modCatId);
 
