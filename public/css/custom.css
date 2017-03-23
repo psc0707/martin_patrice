@@ -50,34 +50,39 @@ img {
 }
 
 /*create categorie*/
-
-#catCreate{
-	margin-right: 30px;
-	width: 250px;
-}
-
 #newCategory{
-	line-height: 215px;
-	margin-top: 150px;
+	position: relative;
+	line-height: 20px;
+	margin-top: 5%;
 	vertical-align: center;
 }
 
-#modifyCategory{
-	/*padding-top: 180px;*/
-	padding-left: 400px;
-	position: relative;
-	top: 100px;
+#newCategory input[type="text"]{
+	width: 20%;
+    height: 32px;
+    padding: 5px 10px;
+    border: 1px solid #CCCCCC;
+    font-size: 14px;
+}
+.result{
+    position: absolute;        
+    z-index: 999;
+    top: 100%;
+    left: 0;
+}
+#newCategory input[type="text"], .result{
+    width: 20%;
+    box-sizing: border-box;
 }
 
-.lenght{
-	width: 300px;
+/* Formatting result items */
+.result p{
+    margin: 0;
+    padding: 7px 10px;
+    border: 1px solid #CCCCCC;
+    border-top: none;
+    cursor: pointer;
 }
-
-.selectCategory{
-	margin: 10px;
-	float: left;
-}
-
-#createcat{
-	margin-left: 20px;
+.result p:hover{
+    background: #f2f2f2;
 }
