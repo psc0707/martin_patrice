@@ -21,6 +21,7 @@
 }?><br>
 <? endforeach?>
 
+<br>
 <div class="panel panel-primary">
 	<div class="panel-heading"><h3 class="panel-title">Newest Additions</h3></div><br>
 	<!-- Table -->

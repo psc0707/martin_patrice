@@ -31,7 +31,7 @@ else {
 		else {
 			$results = $sth->fetchAll(PDO::FETCH_ASSOC);
 			$temp =  implode(",", $results[0]);
-			$displayArray[] = '<a href="http://google.com" class="btn btn-success">'.$temp.' '.$value['cat_name'].'</a>';
+			$displayArray[] = '<a href="http://google.com" class="btn btn-success" style="color:black;font-weight:bold;margin-left:10px;margin-top:5px">'.$temp.' '.$value['cat_name'].'</a>';
 		}
 }
 

@@ -10,13 +10,13 @@ img {
 /*home*/
 
 #searchForm{
-	padding-top: 150px;
+	padding-top: 100px;
 }
 
 .headHome{
 	background-image: url(../../img/banner.jpg);
 	width: 100%;
-	height: 433px;
+	height: 300px;
 }
 
 #searchPanel{

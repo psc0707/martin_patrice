@@ -7,8 +7,7 @@ $modCatName = '';
 
 $sql = 'SELECT cat_name, cat_id	FROM categories';
 	$results = $pdo->query($sql);
-	$resultList = $results->fetchAll(PDO::FETCH_ASSOC); // 
-	print_r($resultList);
+	$resultList = $results->fetchAll(PDO::FETCH_ASSOC); //print_r($resultList);
 
 if (!empty($_POST)) {
 	print_r($_POST);
