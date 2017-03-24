@@ -5,12 +5,26 @@
   	<?php if ($searchWord != '') : ?>
 		  <?= $nbResults ?> résultat(s) pour la recherche "<?= $searchWord ?>"
 	  <?php else : ?>
+      <!-- Choix de la Pagination -->
+    <form id="pageForm" action="catalog.php" method="get" class="form-inline">
+      <select name="paginationSelected" class="lenght form-control">
+        <option value="0">Pagination</option>
+        <?php foreach ($paginationTable as $key => $value) : ?>
+          <option value="<?= $key; ?>"> <?= $value; ?> </option> <?php
+        endforeach; ?>
+      </select>  
+      <input type="submit" class="btn btn-success" value="Paginer" />
+      <a href="catalog.php?desc=1">Les derniers films ajoutés</a>
+      <br>    
+      <br>    
+    </form>
+
 	    <?php if ($pageNo>1) : ?>
-	   		<a href="catalog.php?page=<?= $pageNo-1 ?>&sesId=<?= $sessionId ?>" class="btn btn-xs btn-success">précédent</a>
+	   		<a href="catalog.php?page=<?= $pageNo-1 ?>" class="btn btn-xs btn-success">précédent</a>
 		  <?php endif; ?>
       <span><strong>Page : <?= $pageNo ?></strong></span>
       <?php if ($nbResults>0) : ?>
-	     <a href="catalog.php?page=<?= $pageNo+1 ?>&sesId=<?= $sessionId ?>" class="btn btn-xs btn-success">suivant</a>
+	     <a href="catalog.php?page=<?= $pageNo+1 ?>" class="btn btn-xs btn-success">suivant</a>
       <?php endif; ?>
   	<?php endif; ?>
   </div>
