@@ -19,11 +19,13 @@ else {
   $pageNo = 1;
 }
 
-$pagination = 3; // Valeur par défaut
-$defaut = $pagination;
-
+if (!(isset($_GET['paginationSelected']))) {
+  $pagination = 3; // Valeur par défaut  
+} else {
+  $pagination = $_GET['paginationSelected'];
+}
 // La pagination a été demandée
-$pagination = isset($_GET['pagination']) ? intval($_GET['pagination']) : $defaut;
+
 
 // print_r('pagination '.$pagination);
 // Je calcule l'offset à partir du numéro de page
@@ -37,7 +39,7 @@ $searchWord = isset($_GET['s']) ? trim(strip_tags($_GET['s'])) : '';
 
 // print_r('$searchWord '.$searchWord.'<br>');
 
-$sql = 'SELECT `mov_id`, `mov_title`, `mov_released`, `mov_director`, `mov_runtime`, `mov_actors`, `mov_synopsis`, `mov_language`, `mov_poster`, `mov_rating`, 					`mov_support`, `mov_link`, `Categories_cat_id`
+$sql = 'SELECT `mov_id`, `mov_title`, `mov_released`, `mov_director`, `mov_runtime`, `mov_actors`, `mov_synopsis`, `mov_language`, `mov_poster`, `mov_rating`, 					`mov_support`, `mov_link`, mov_inserted, `Categories_cat_id`
 		FROM movies
         LEFT OUTER JOIN categories on categories.cat_id = categories_cat_id
 				WHERE 1=1 
@@ -58,6 +60,10 @@ if ($searchWord != '') {
       OR mov_support LIKE :search
     )
   ';
+}
+// Le tri est demandé
+if (isset($_GET['desc'])) {
+  $sql .= 'ORDER BY mov_inserted DESC';
 }
 
 $sql .= '
